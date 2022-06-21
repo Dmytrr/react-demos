@@ -2,8 +2,19 @@ import logo from './logo.svg';
 import './App.css';
 import Simpsons from "./components/Simpsons";
 import RickAndMorty from "./components/RickAndMorty";
+import {useEffect, useState} from "react";
 
 function App() {
+    let [chars, setChars] = useState([]);
+    useEffect(()=>{
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => {
+                setChars(json);
+            })
+    }, [])
+    console.log(chars.map(value=>value.name))
+
     return (
         <div className="wrap">
             <div className="simpsons">
@@ -17,7 +28,7 @@ function App() {
                 <Simpsons name={'Maggie'} source={'https://upload.wikimedia.org/wikipedia/ru/9/9d/Maggie_Simpson.png'}/>
             </div>
             <div className="rickandmorty">
-
+                <RickAndMorty name={chars.map(value=>value.name)}/>
             </div>
         </div>
     );
