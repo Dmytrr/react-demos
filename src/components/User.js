@@ -6,7 +6,6 @@ const User = ({user, chooseUser}) => {
             {user.id}
             {user.name}
             <button onClick={() => {
-                console.log(user.name);
                 chooseUser(user);
             }}>Details</button>
         </div>

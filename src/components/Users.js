@@ -5,7 +5,9 @@ const Users = () => {
 
     let [users, setUsers] = useState([]);
     let [user, setUser] = useState([]);
-    const chooseUser = user => console.log(user);
+
+    const chooseUser = user => setUser(user);
+
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then(value => value.json())
@@ -20,7 +22,7 @@ const Users = () => {
                 <User
                 key={index}
                 user={user}
-                fn={chooseUser}
+                chooseUser={chooseUser}
                 />)}
         </div>
     );
