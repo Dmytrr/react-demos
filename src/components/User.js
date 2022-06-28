@@ -7,7 +7,7 @@ const User = ({user, chooseUser}) => {
             {user.name}
             <button onClick={() => {
                 chooseUser(user);
-            }}>Details</button>
+            }}>Posts</button>
         </div>
     );
 };
