@@ -1,10 +1,10 @@
 import {useForm} from "react-hook-form";
 
-export default function PostComment() {
+const PostUser = () => {
 
-    let {register, handleSubmit, formState: {errors}} = useForm({defaultValues: {postId: '1', name: 'Maria', body: 'hello, world!'}});
+    let {register, handleSubmit, formState: {errors}} = useForm({defaultValues: {name: 'name', username: 'username'}});
     let submit = (obj) => {
-        fetch('https://jsonplaceholder.typicode.com/comments', {
+        fetch('https://jsonplaceholder.typicode.com/users', {
             method: 'POST',
             body: JSON.stringify(obj),
             headers: {
@@ -18,14 +18,13 @@ export default function PostComment() {
     return (
         <div>
             <form onSubmit={handleSubmit(submit)}>
-                <input type="text"{...register('postId', {required: true})}/>
-                {errors.postId && <span>userId is required</span>}
                 <input type="text"{...register('name', {required: true})}/>
                 {errors.name && <span>name is required</span>}
-                <input type="text"{...register('body', {required: true})}/>
-                {errors.body && <span>post is required</span>}
+                <input type="text"{...register('username', {required: true})}/>
+                {errors.username && <span>username is required</span>}
                 <input type="submit"/>
             </form>
         </div>
     )
 }
+export {PostUser}

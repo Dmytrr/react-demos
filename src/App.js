@@ -1,7 +1,7 @@
 import './App.css';
 
-import PostUser from "./components/PostUser";
-import PostComment from "./components/PostComment";
+import {PostUser} from "./components";
+import {PostComment} from "./components";
 
 function App() {
     return (
