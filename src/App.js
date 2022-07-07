@@ -1,9 +1,10 @@
 import {Link, Route, Routes} from "react-router-dom";
 
 import './App.css';
-import Todos from "./components/Todos";
-import Albums from "./components/Albums";
-import Comments from "./components/Comments";
+import Todos from "./pages/Todos";
+import Albums from "./pages/Albums";
+import Comments from "./pages/Comments";
+import Posts from "./pages/Posts";
 
 function App() {
     return <div>
@@ -20,6 +21,7 @@ function App() {
                 <Route path={'Todos'} element={<Todos/>}/>
                 <Route path={'Albums'} element={<Albums/>}/>
                 <Route path={'Comments'} element={<Comments/>}/>
+                <Route path={'Comments/:postId'} element={<Posts/>}/>
             </Routes>
         </div>
     </div>
